@@ -1,5 +1,5 @@
 import React from 'react';
-import './Counter.scss';
+import styles from './Counter.module.scss';
 
 export const Counter = () => {
     const [count, setCount] = React.useState(0);
@@ -9,7 +9,7 @@ export const Counter = () => {
     }
 
     return (
-        <span onClick={() => sumOne()} className='counter'>
+        <span onClick={() => sumOne()} className={styles.counter}>
             {count}
         </span>
     )
