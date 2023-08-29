@@ -1,5 +1,4 @@
 import { BuildOptions } from "./types/types";
-import path from "path";
 import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
@@ -10,8 +9,6 @@ export function buildWebpackConfig(
     options: BuildOptions
 ): webpack.Configuration {
     const { paths, mode, isDev } = options;
-
-    console.log(mode);
 
     return {
         mode: mode,
