@@ -1,29 +1,35 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Counter } from '../Counter';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import { MainPageAsync } from '../../pages/MainPage/MainPage.async';
 import { AboutPageSync } from '../../pages/AboutPage/AboutPage.async';
-import { Link } from 'react-router-dom';
-import { Suspense } from 'react';
+import { useTheme } from '../../theme/useTheme';
 
 export const App = () => {
+    const { theme, changeTheme } = useTheme();
+
     return (
-        <div>
-            <nav>
+        <div className={`app ${theme}`}>
+            <nav className='nav'>
                 <Link to={'/'}>
                     Main
                 </Link>
                 <Link to={'/about'}>
                     About
                 </Link>
+                <button onClick={changeTheme}>
+                    Change Theme
+                </button>
             </nav>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path='/about' element={<AboutPageSync />} />
-                    <Route path='/' element={<MainPageAsync />} />
-                    <Route path='/counter' element={<Counter />} />
-                </Routes>
-            </Suspense>
+            <main className='main'>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Routes>
+                        <Route path='/about' element={<AboutPageSync />} />
+                        <Route path='/' element={<MainPageAsync />} />
+                        <Route path='/counter' element={<Counter />} />
+                    </Routes>
+                </Suspense>
+            </main>
         </div>
     )
 }
