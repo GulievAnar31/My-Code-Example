@@ -4,12 +4,13 @@ import { Route, Routes, Link } from 'react-router-dom';
 import { MainPageAsync } from '../../pages/MainPage/MainPage.async';
 import { AboutPageSync } from '../../pages/AboutPage/AboutPage.async';
 import { useTheme } from '../../theme/useTheme';
+import { classNames } from '../../helpers/classNames/classNames';
 
 export const App = () => {
     const { theme, changeTheme } = useTheme();
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {}, [theme])}>
             <nav className='nav'>
                 <Link to={'/'}>
                     Main
