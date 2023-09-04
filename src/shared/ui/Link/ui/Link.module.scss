@@ -1,0 +1,16 @@
+.Link {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        transform: scale(1.05);
+        background-color: darken(#74a155, 10%);
+    }
+}
