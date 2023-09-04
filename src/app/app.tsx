@@ -1,9 +1,8 @@
-import React, { Suspense } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-import { MainPageAsync } from 'pages/MainPage';
-import { AboutPageSync } from 'pages/AboutPage';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from '../shared/lib/classNames/classNames';
+import { AppRouter } from './providers/Router';
 
 export const App = () => {
     const { theme, changeTheme } = useTheme();
@@ -22,12 +21,7 @@ export const App = () => {
                 </button>
             </nav>
             <main className='main'>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Routes>
-                        <Route path='/about' element={<AboutPageSync />} />
-                        <Route path='/' element={<MainPageAsync />} />
-                    </Routes>
-                </Suspense>
+                <AppRouter />
             </main>
         </div>
     )
