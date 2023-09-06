@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { css, keyframes } from "@emotion/react";
-import React from 'react';
 
 const assembleAnimation = keyframes`
   0% {
@@ -18,7 +17,7 @@ const containerStyles = css`
     font-family: 'Arial', sans-serif;
     padding: 2rem;
     animation: ${assembleAnimation} 2s forwards;
-    background-color: #f7f9fc;
+    background-color: var(--primary-color);
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     max-width: 800px;
