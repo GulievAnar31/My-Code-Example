@@ -1,0 +1,15 @@
+{
+    "greetings": "Hello! My name is Anar",
+    "i'm": "I'm a professional frontend developer...",
+    "stack": {
+        "title": "My Stack: ",
+        "html": "What's included in my stack:",
+        "js": "JavaScript (ES6+) – to create interactivity and dynamics.",
+        "react": "React is a popular library for creating interfaces.",
+        "redux": "Redux – for managing application state.",
+        "vue": "Vue.js & Vuex – for creating interfaces and managing state.",
+        "ts": "TypeScript - to add strong typing.",
+        "webpack": "Webpack & Babel - build and transpilation tools."
+    },
+    "description": "I constantly follow new technologies and innovations in the world of front-end development in order to always be on the wave and offer clients the best solutions. If you need an experienced and reliable developer, I will be happy to help!"
+}

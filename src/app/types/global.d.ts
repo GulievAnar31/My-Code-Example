@@ -5,6 +5,9 @@ declare module '*.scss' {
     const classNames: IClassNames;
     export = classNames;
 }
+
+declare const _IS_DEV_: boolean;
+
 declare module "*.png";
 declare module "*.jpg";
 declare module "*.jpeg";

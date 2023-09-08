@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from '../shared/lib/classNames/classNames';
 import { AppRouter } from './providers/Router';
 import { Navbar } from 'widgets/Navbar';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { ToggleButton } from 'widgets/ToggleButton';
+import { ToggleLanguageButton } from 'widgets/ToggleLanguageButton';
 
 export const App = () => {
     const { theme } = useTheme();
@@ -15,12 +16,15 @@ export const App = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <ToggleButton onClick={onToggle} />
-            {collapsed && <Navbar />}
-            <ThemeSwitcher />   
-            <main className='content-page'>
-                <AppRouter />
-            </main>
+            <Suspense fallback={<>Loading...</>}>
+                <ToggleButton onClick={onToggle} />
+                <ToggleLanguageButton />
+                {collapsed && <Navbar />}
+                <ThemeSwitcher />
+                <main className='content-page'>
+                    <AppRouter />
+                </main>
+            </Suspense>
         </div>
     )
 }

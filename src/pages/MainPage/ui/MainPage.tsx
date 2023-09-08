@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css, keyframes } from "@emotion/react";
+import { useTranslation } from 'react-i18next';
 
 const assembleAnimation = keyframes`
   0% {
@@ -50,23 +51,25 @@ const paragraphStyles = css`
 `;
 
 const MainPage = () => {
+    const { t } = useTranslation('main');
+
     return (
         <div css={containerStyles}>
-            <div css={headingStyles}>Привет! Меня зовут Анар</div>
-            <p css={paragraphStyles}>Я профессиональный фронтенд-разработчик...</p>
+            <div css={headingStyles}>{t('greetings')}</div>
+            <p css={paragraphStyles}>{t(`i'm`)}</p>
 
-            <p css={paragraphStyles}>Что входит в мой стек:</p>
+            <p css={paragraphStyles}>{t('stack.title')}</p>
             <ul css={listStyles}>
-                <li css={itemStyles}>HTML5 & CSS3...</li>
-                <li css={itemStyles}>JavaScript (ES6+) – для создания интерактивности и динамики.</li>
-                <li css={itemStyles}>React – популярная библиотека для создания интерфейсов.</li>
-                <li css={itemStyles}>Redux – для управления состоянием приложения.</li>
-                <li css={itemStyles}>Vue.js & Vuex – для создания интерфейсов и управления состоянием.</li>
-                <li css={itemStyles}>TypeScript – для добавления строгой типизации.</li>
-                <li css={itemStyles}>Webpack & Babel – инструменты сборки и транспиляции.</li>
+                <li css={itemStyles}>{t('stack.html')}</li>
+                <li css={itemStyles}>{t('stack.js')}.</li>
+                <li css={itemStyles}>{t('stack.react')}</li>
+                <li css={itemStyles}>{t('stack.redux')}</li>
+                <li css={itemStyles}>{t('stack.vue')}</li>
+                <li css={itemStyles}>{t('stack.ts')}</li>
+                <li css={itemStyles}>{t('stack.webpack')}</li>
             </ul>
 
-            <p css={paragraphStyles}>Я постоянно следую за новыми технологиями и инновациями в мире фронтенд-разработки, чтобы всегда быть на волне и предлагать клиентам лучшие решения. Если вам нужен опытный и надежный разработчик, буду рад помочь!</p>
+            <p css={paragraphStyles}>{t('description')}</p>
         </div>
     )
 }
