@@ -1,1 +1,1 @@
-export { LinkComponent } from "./ui/Link";
+export { LinkComponent } from './ui/Link'

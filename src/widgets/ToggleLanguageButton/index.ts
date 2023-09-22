@@ -1,1 +1,1 @@
-export { ToggleLanguageButton } from "./ui/ToggleLanguageButton";
+export { ToggleLanguageButton } from './ui/ToggleLanguageButton'

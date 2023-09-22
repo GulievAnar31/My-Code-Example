@@ -1,22 +1,22 @@
-import React, { FC, ReactNode } from 'react';
-import styles from './Button.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import React, { type FC, type ReactNode } from 'react'
+import styles from './Button.module.scss'
+import { classNames } from 'shared/lib/classNames/classNames'
 
 interface ButtonProps {
-    className?: string;
-    onClick?: () => void;
-    children?: ReactNode;
+  className?: string
+  onClick?: () => void
+  children?: ReactNode
 }
 
 export const ButtonComponent: FC<ButtonProps> = (props) => {
-    const { className, onClick, children } = props;
+  const { className, onClick, children } = props
 
-    return (
+  return (
         <button
-            className={classNames(styles.button, {}, [className])}
+            className={classNames(styles.button, {}, [className ?? ''])}
             onClick={onClick}
         >
             { children }
         </button>
-    )
+  )
 }
