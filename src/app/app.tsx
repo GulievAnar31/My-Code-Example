@@ -6,6 +6,7 @@ import { Navbar } from 'widgets/Navbar'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { ToggleButton } from 'widgets/ToggleButton'
 import { ToggleLanguageButton } from 'widgets/ToggleLanguageButton'
+import { PageLoader } from 'shared/ui/PageLoader'
 
 export const App = () => {
   const { theme } = useTheme()
@@ -16,7 +17,7 @@ export const App = () => {
 
   return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback={<>Loading...</>}>
+            <Suspense fallback={<PageLoader />}>
                 <ToggleButton onClick={onToggle} />
                 <ToggleLanguageButton />
                 {collapsed && <Navbar />}

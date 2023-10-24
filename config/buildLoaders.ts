@@ -1,38 +1,37 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import webpack from 'webpack';
-import { BuildOptions } from './types/types';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import type webpack from 'webpack'
+import { type BuildOptions } from './types/types'
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-
+export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: ['@svgr/webpack']
   }
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff|woff2)$/i,
     use: [
       {
-        loader: 'file-loader',
-      },
-    ],
+        loader: 'file-loader'
+      }
+    ]
   }
 
   const babelLoader = {
     test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
     use: {
-      loader: "babel-loader",
+      loader: 'babel-loader',
       options: {
         presets: ['@babel/preset-env'],
-        "plugins": [
+        plugins: [
           [
-            "i18next-extract",
+            'i18next-extract',
             {
               locales: ['ru', 'en'],
               keyAsDefaultValue: true
             }
-          ],
+          ]
         ]
       }
     }
@@ -48,17 +47,17 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
           modules: {
             auto: (resPath: string) => Boolean(resPath.includes('.module.')),
             localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]'
-          },
+          }
         }
       },
-      'sass-loader',
+      'sass-loader'
     ]
   }
 
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
-    exclude: /node_modules/,
+    exclude: /node_modules/
   }
 
   return [
@@ -66,7 +65,6 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     svgLoader,
     babelLoader,
     typescriptLoader,
-    cssLoader,
+    cssLoader
   ]
 }
-
