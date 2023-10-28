@@ -20,6 +20,9 @@
         "module": "CommonJS",
         "jsx": "react-jsx"
       }
-    }
+    },
+    "include": [
+      "./config/setupTests.ts"
+    ],
   }
   

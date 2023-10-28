@@ -1,3 +1,5 @@
+import path from "path";
+
 export default {
   clearMocks: true,
   testEnvironment: 'jsdom',
@@ -21,5 +23,10 @@ export default {
   rootDir: '../',
   modulePaths: [
     '<rootDir>src'
-  ]
+  ],
+  setupFilesAfterEnv: ['<rootDir>config/setupTests.ts'],
+  moduleNameMapper: {
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '\\.(scss)$': 'identity-obj-proxy',
+  },
 }
