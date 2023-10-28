@@ -1,8 +1,13 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { Navbar } from './Navbar';
-import { I18nextProvider } from 'react-i18next';
-import i18n from 'i18next';
+import React from 'react'
+import { render } from '@testing-library/react'
+import { Navbar } from './Navbar'
+import { I18nextProvider } from 'react-i18next'
+import i18n from 'i18next'
+
+interface LinkComponentProps {
+  to: string
+  children: React.ReactNode
+}
 
 i18n.init({
   lng: 'en',
@@ -10,15 +15,15 @@ i18n.init({
     en: {
       navbar: {
         main: 'Main',
-        about: 'About',
-      },
-    },
-  },
-});
+        about: 'About'
+      }
+    }
+  }
+})
 
 jest.mock('shared/ui/Link', () => ({
-  LinkComponent: ({ to, children }) => <a href={to}>{children}</a>,
-}));
+  LinkComponent: ({ to, children }: LinkComponentProps) => <a href={to}>{children}</a>
+}))
 
 describe('Navbar', () => {
   it('renders correctly', () => {
@@ -26,12 +31,12 @@ describe('Navbar', () => {
       <I18nextProvider i18n={i18n}>
         <Navbar />
       </I18nextProvider>
-    );
+    )
 
-    expect(getByText('Main')).toBeInTheDocument();
-    expect(getByText('Main').closest('a')).toHaveAttribute('href', '/');
-    
-    expect(getByText('About')).toBeInTheDocument();
-    expect(getByText('About').closest('a')).toHaveAttribute('href', '/about');
-  });
-});
+    expect(getByText('Main')).toBeInTheDocument()
+    expect(getByText('Main').closest('a')).toHaveAttribute('href', '/')
+
+    expect(getByText('About')).toBeInTheDocument()
+    expect(getByText('About').closest('a')).toHaveAttribute('href', '/about')
+  })
+})

@@ -3,3 +3,4 @@ dist/
 build/
 extractedTranslations/
 .DS_Store
+.vscode/
